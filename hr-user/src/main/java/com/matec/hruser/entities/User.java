@@ -27,7 +27,7 @@ public class User implements Serializable{
 	private Long id;
 	private String name;
 	private String email;
-	private String passwork;	
+	private String password;	
 	
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "tb_user_role", 
@@ -40,12 +40,12 @@ public class User implements Serializable{
 		
 	}
 
-	public User(Long id, String name, String email, String passwork) {
+	public User(Long id, String name, String email, String password) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.email = email;
-		this.passwork = passwork;
+		this.password = password;
 	}
 
 	public Long getId() {
@@ -72,12 +72,12 @@ public class User implements Serializable{
 		this.email = email;
 	}
 
-	public String getPasswork() {
-		return passwork;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setPasswork(String passwork) {
-		this.passwork = passwork;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 		
 	public Set<Role> getRoles() {
@@ -95,7 +95,7 @@ public class User implements Serializable{
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + ((passwork == null) ? 0 : passwork.hashCode());
+		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		return result;
 	}
 
@@ -123,10 +123,10 @@ public class User implements Serializable{
 				return false;
 		} else if (!name.equals(other.name))
 			return false;
-		if (passwork == null) {
-			if (other.passwork != null)
+		if (password == null) {
+			if (other.password != null)
 				return false;
-		} else if (!passwork.equals(other.passwork))
+		} else if (!password.equals(other.password))
 			return false;
 		return true;
 	}
